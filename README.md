@@ -21,7 +21,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [在vue项目上使用likerpx](#%e5%9c%a8vue%e9%a1%b9%e7%9b%ae%e4%b8%8a%e4%bd%bf%e7%94%a8likerpx)
+- [在 vue 项目上使用 likerpx](#%e5%9c%a8-vue-%e9%a1%b9%e7%9b%ae%e4%b8%8a%e4%bd%bf%e7%94%a8-likerpx)
       - [安装](#%e5%ae%89%e8%a3%85)
       - [引入](#%e5%bc%95%e5%85%a5)
       - [使用](#%e4%bd%bf%e7%94%a8)
@@ -36,12 +36,12 @@
       - [max-width](#max-width)
       - [min-width](#min-width)
       - [rate](#rate)
-- [完美复现小程序rpx](#%e5%ae%8c%e7%be%8e%e5%a4%8d%e7%8e%b0%e5%b0%8f%e7%a8%8b%e5%ba%8frpx)
+- [完美复现小程序 rpx](#%e5%ae%8c%e7%be%8e%e5%a4%8d%e7%8e%b0%e5%b0%8f%e7%a8%8b%e5%ba%8f-rpx)
 - [问题与技巧](#%e9%97%ae%e9%a2%98%e4%b8%8e%e6%8a%80%e5%b7%a7)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# 在vue项目上使用likerpx
+# 在 vue 项目上使用 likerpx
 
 #### 安装
 
@@ -231,7 +231,7 @@ likerpx 计算的最大窗口宽度。
 |100000|0.00001|7|
 |...|...|...|
 
-# 完美复现小程序rpx
+# 完美复现小程序 rpx
 
 这里是傻瓜式搭建“完美复现小程序rpx”的流程，照着下面的步骤做，即可使用跟小程序一样体验的rpx。
 

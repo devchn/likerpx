@@ -5,6 +5,7 @@
 * 跟小程序的 rpx 体验完全一致
 * likerpx 的默认配置已经设置成跟小程序的 rpx 体验一致了
 * 还可以另外自定义 rpx 配置
+* 自动将设计图的长度转换为实际长度，写代码时再也不需要做长度转换
 
 **例子 demo**
 
@@ -55,14 +56,21 @@ npm install --save-dev postcss-rpx2rem
 module.exports = {
   'plugins': {
     'postcss-rpx2rem': { // 添加这个插件
-      proportion: 0.001, // 比率
-      unitPrecision: 5 // 小数位最多5位
+      proportion: 0.001, // rpx 到 rem 的转换比例
+      unitPrecision: 5 // rem 的小数位位数
     }
   }
 }
 ```
 
->这个proportion的设定跟下面的rate配置参数一致即可。也就是说，rate="1000"时，这个设置为 0.001;rate="10000"时，这个设置为 0.0001。具体看参数详情
+这个 proportion 和 unitPrecision 的设定跟下面的 rate 配置参数一致即可。也就是说：
+
+rate="1000"时，proportion=0.001，unitPrecision=5;
+
+rate="10000"时，proportion=0.0001,unitPrecision=6。
+
+具体看[参数详解](#%e5%8f%82%e6%95%b0%e8%af%a6%e8%a7%a3)的 rate
+
 
 #### 引入
 
@@ -180,10 +188,10 @@ likerpx 计算的最大窗口宽度。
 
 列举以下例子
 
-当 design-width 为 x，rate 为 y时，占满屏幕宽度的 css 属性应该如何设置：
+当 design-width=x;rate=y 时，占满屏幕宽度的 css 属性应该如何设置：
 
 |design-width|rate|设置占满屏的css属性：width=?|
-|:-:|:-:|:-|
+|:-:|:-:|:-:|
 |750|1000(推荐)|.750rem|
 |750|10000|.0750rem|
 |750|100|7.50rem|
@@ -192,7 +200,7 @@ likerpx 计算的最大窗口宽度。
 |1200|1000|1.200rem|
 |1200|100|12.00rem|
 
-当 rate 为 x 时，postcss-rpx2rem 上的 proportion 应该如何设置：
+当 rate=x 时，postcss-rpx2rem 上的 proportion 应该如何设置：
 
 |rate|proportion|
 |:-:|:-:|
@@ -200,6 +208,27 @@ likerpx 计算的最大窗口宽度。
 |1000|0.001|
 |100|0.01|
 |10|0.1|
+
+假如 rate=1000;proportion=0.001 设置 unitPrecision=x;rpx=y 时，最后结果 rem=?
+
+|unitPrecision|rpx|rem=?|
+|:-:|:-:|:-:|
+|5|750.12345678rpx|.75012rem|
+|6|750.12345678rpx|.750123rem|
+|7|750.12345678rpx|.7501234rem|
+|8|750.12345678rpx|.75012345rem|
+
+说白了，unitPrecision 就是最终 rem 的小数位数精度。
+
+rate=100 推荐 unitPrecision=4
+
+rate=1000 推荐 unitPrecision=5
+
+rate=10000 推荐 unitPrecision=6
+
+rate=100000 推荐 unitPrecision=7
+
+以此类推...
 
 # 完美复现小程序rpx
 

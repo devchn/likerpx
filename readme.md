@@ -183,8 +183,9 @@ likerpx 计算的最大窗口宽度。
 
 比率，默认为 1000。
 
-* 这里的 rate，要跟 postcss-rpx2rem 上的 proportion 一致
-* rate 的设置只会在使用 rem 的时候有区别
+* 这里的 rate，要跟 postcss-rpx2rem 上的 proportion 和 unitPrecision 一致
+* rate 的设置只在 rem 的使用方式上有区别
+
 
 列举以下例子
 
@@ -220,15 +221,15 @@ likerpx 计算的最大窗口宽度。
 
 说白了，unitPrecision 就是最终 rem 的小数位数精度。
 
-rate=100 推荐 unitPrecision=4
+推荐配置
 
-rate=1000 推荐 unitPrecision=5
-
-rate=10000 推荐 unitPrecision=6
-
-rate=100000 推荐 unitPrecision=7
-
-以此类推...
+|rate|proportion|unitPrecision|
+|:-|:-|:-|
+|100|0.01|4|
+|1000|0.001|5|
+|10000|0.0001|6|
+|100000|0.00001|7|
+|...|...|...|
 
 # 完美复现小程序rpx
 

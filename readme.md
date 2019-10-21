@@ -1,4 +1,4 @@
-通过 likerpx ，可以在 html 项目上使用小程序的 rpx 单位，体验跟小程序的 rpx 一致。
+通过 likerpx ，可以在 html 项目上使用小程序的 rpx 单位，体验跟小程序的 rpx 完全一致。
 
 **特性**
 

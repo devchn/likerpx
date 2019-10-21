@@ -1,7 +1,7 @@
 {
   "name": "likerpx",
-  "version": "1.1.12",
-  "description": "在 html 项目上使用小程序的 rpx 单位",
+  "version": "1.1.13",
+  "description": "通过 likerpx ，可以在 html 项目上使用小程序的 rpx 单位，体验跟小程序的 rpx 完全一致",
   "main": "likerpx.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +15,8 @@
     "rem",
     "rpx2rem",
     "rem2rpx",
+    "rpxtorem",
+    "remtorpx",
     "vw",
     "vh"
   ],

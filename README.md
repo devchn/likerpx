@@ -21,27 +21,107 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [在 vue 项目上使用 likerpx](#%e5%9c%a8-vue-%e9%a1%b9%e7%9b%ae%e4%b8%8a%e4%bd%bf%e7%94%a8-likerpx)
+- [基本使用教程 （webpack项目）](#%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b-webpack%e9%a1%b9%e7%9b%ae)
+- [基本使用教程 （非webpack项目）](#%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b-%e9%9d%9ewebpack%e9%a1%b9%e7%9b%ae)
+- [详细使用教程（webpack 项目）](#%e8%af%a6%e7%bb%86%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8bwebpack-%e9%a1%b9%e7%9b%ae)
       - [安装](#%e5%ae%89%e8%a3%85)
       - [引入](#%e5%bc%95%e5%85%a5)
       - [使用](#%e4%bd%bf%e7%94%a8)
       - [配置](#%e9%85%8d%e7%bd%ae)
-- [在普通 html 项目上使用 likerpx](#%e5%9c%a8%e6%99%ae%e9%80%9a-html-%e9%a1%b9%e7%9b%ae%e4%b8%8a%e4%bd%bf%e7%94%a8-likerpx)
+- [详细使用教程（非 webpack 项目）](#%e8%af%a6%e7%bb%86%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b%e9%9d%9e-webpack-%e9%a1%b9%e7%9b%ae)
       - [下载](#%e4%b8%8b%e8%bd%bd)
       - [引入](#%e5%bc%95%e5%85%a5-1)
       - [使用](#%e4%bd%bf%e7%94%a8-1)
       - [配置参数](#%e9%85%8d%e7%bd%ae%e5%8f%82%e6%95%b0)
-- [参数详解](#%e5%8f%82%e6%95%b0%e8%af%a6%e8%a7%a3)
+- [配置参数详解](#%e9%85%8d%e7%bd%ae%e5%8f%82%e6%95%b0%e8%af%a6%e8%a7%a3)
       - [design-width](#design-width)
       - [max-width](#max-width)
       - [min-width](#min-width)
       - [rate](#rate)
-- [完美复现小程序 rpx](#%e5%ae%8c%e7%be%8e%e5%a4%8d%e7%8e%b0%e5%b0%8f%e7%a8%8b%e5%ba%8f-rpx)
 - [问题与技巧](#%e9%97%ae%e9%a2%98%e4%b8%8e%e6%8a%80%e5%b7%a7)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# 在 vue 项目上使用 likerpx
+# 基本使用教程 （webpack项目）
+
+这里是傻瓜式搭建“完美复现小程序rpx”的流程，照着下面的步骤做，即可使用跟小程序一样体验的rpx。
+
+likerpx的默认配置已经是跟小程序rpx 一样的了 ^_^
+
+这里不会有太多的讲解，如果想看更详细的教程，请看 [详细使用教程（webpack 项目）](#%e8%af%a6%e7%bb%86%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8bwebpack-%e9%a1%b9%e7%9b%ae)
+
+**在命令行上运行**
+```
+npm install --save likerpx
+npm install --save-dev postcss-rpx2rem
+```
+
+**在 .postcssrc.js 或 postscs.config.js 文件上添加 postcss-rpx2rem 插件**
+```
+module.exports = {
+  'plugins': {
+    'postcss-rpx2rem': { // 添加这个插件
+      proportion: 0.001, // 比率
+      unitPrecision: 5 // 小数位最多5位
+    }
+  }
+}
+```
+
+**在 main.js 中引入**
+```
+import 'likerpx'
+```
+
+**使用**
+```
+<template>
+  <div id="app">
+    <div class="box"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'app'
+}
+</script>
+
+<style lang="stylus">
+.box
+  width 100rpx
+  height 100rpx
+  background-color red
+</style>
+```
+
+# 基本使用教程 （非webpack项目）
+
+这里不会有太多的讲解，如果想看更详细的教程，请看 [详细使用教程（非 webpack 项目）](#%e8%af%a6%e7%bb%86%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b%e9%9d%9e-webpack-%e9%a1%b9%e7%9b%ae)
+
+**下载 likerpx**
+
+https://github.com/devchn/likerpx
+
+
+**引入 likerpx**
+```
+<script src="likerpx.js"></script>
+```
+
+**使用**
+```
+<style>
+.box {
+  width: .100rem;
+  height: .100rem;
+  background-color: red;
+}
+</style>
+```
+
+
+# 详细使用教程（webpack 项目）
 
 #### 安装
 
@@ -113,7 +193,7 @@ export default {
 </html>
 ```
 
-# 在普通 html 项目上使用 likerpx
+# 详细使用教程（非 webpack 项目）
 
 #### 下载
 https://github.com/devchn/likerpx
@@ -151,7 +231,7 @@ https://github.com/devchn/likerpx
 ```
 
 
-# 参数详解
+# 配置参数详解
 
 #### design-width
 
@@ -230,57 +310,6 @@ likerpx 计算的最大窗口宽度。
 |10000|0.0001|6|
 |100000|0.00001|7|
 |...|...|...|
-
-# 完美复现小程序 rpx
-
-这里是傻瓜式搭建“完美复现小程序rpx”的流程，照着下面的步骤做，即可使用跟小程序一样体验的rpx。
-
-其实内容跟[在vue项目上使用likerpx](#在vue项目上使用likerpx)是一模一样的，只是这里是纯流程，省略了说明，而且还省略了配置，likerpx的默认配置已经是跟小程序rpx 一样的了 ^_^
-
-在命令行上运行
-```
-npm install --save likerpx
-npm install --save-dev postcss-rpx2rem
-```
-
-在 .postcssrc.js 或 postscs.config.js 文件上添加 postcss-rpx2rem 插件
-```
-module.exports = {
-  'plugins': {
-    'postcss-rpx2rem': { // 添加这个插件
-      proportion: 0.001, // 比率
-      unitPrecision: 5 // 小数位最多5位
-    }
-  }
-}
-```
-
-在 main.js 中引入
-```
-import 'likerpx'
-```
-
-使用
-```
-<template>
-  <div id="app">
-    <div class="box"></div>
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'app'
-}
-</script>
-
-<style lang="stylus">
-.box
-  width 100rpx
-  height 100rpx
-  background-color red
-</style>
-```
 
 
 # 问题与技巧

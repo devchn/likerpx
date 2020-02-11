@@ -15,5 +15,5 @@
     html.style.fontSize = fontSize + 'px'
   }
   calc()
-  window.addEventListener('resize',() => calc(),false);
+  window.addEventListener('resize', calc, false);
 })()
